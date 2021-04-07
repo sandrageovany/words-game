@@ -1,0 +1,16 @@
+#start-button {
+    font-size: 30px;
+    background-color:rgb(84, 197, 197);;
+    color: #fff;
+    padding: 20px 40px;
+    border: 0;
+    box-shadow: 0;
+    border-radius: 5px;
+    position: absolute;
+    top: 320px;
+    left: 608px;
+}
+
+canvas{
+    background-color: rgb(247, 247, 137);
+}

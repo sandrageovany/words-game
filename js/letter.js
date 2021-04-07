@@ -1,10 +1,11 @@
 class Letter {
-    constructor(x, y, image) {
+    constructor(x, y, image, letter) {
         this.x = x;
         this.y = y;
         this.width = 50;
         this.height = 50;
         this.image = image
+        this.letter = letter
     }
 
     draw() {
