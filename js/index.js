@@ -1,6 +1,7 @@
 const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
 document.getElementById('game-board').style.display = 'none';
+document.getElementById('canvas').style.display = 'none';
 document.getElementById('win').style.display = 'none';
 let missed =0
 
@@ -20,7 +21,7 @@ let randomWordArray = randomWord.split('');
 
 let letterCollection = [
     {
-         A: './images/A.png'
+         A: './images/alphabet/A.png'
      },
      {
          B: './images/alphabet/B.png'
@@ -111,19 +112,19 @@ let lettersCaught = [];
 let letters = [];
 
 document.addEventListener('keydown', (e) => {
+    e.preventDefault()
     currentGame.basket.move(e.keyCode);
 });
 
 function startGame() {
     document.getElementById('game-board').style.display = 'block';
+    document.getElementById('canvas').style.display = 'block';
     currentGame = new Game();
     document.getElementById('word').innerText=randomWord;
 
     currentGame.basket = currentBasket;
     currentGame.basket.draw();
-    cancelAnimationFrame(updateCanvas);//cancel any animation
-
-    //that might exist from the previous game
+    cancelAnimationFrame(updateCanvas);
     updateCanvas();
 }
 
@@ -139,7 +140,7 @@ function updateCanvas() {
 
     lettersFrequency++;
     if (lettersFrequency % 80 === 1) {
-        const randomLetterX = Math.floor(Math.random() * 450);
+        const randomLetterX = Math.floor(Math.random() * 750);
         const randomLetterY = 0;
         // const randomLetterWidth = Math.floor(Math.random() * 50) + 20;
         // const randomLetterHeight = Math.floor(Math.random() * 50) + 20;
@@ -172,7 +173,8 @@ function updateCanvas() {
             if (exists(lettersCaught)) {
 
                 document.getElementById('win').style.display = 'block';
-                document.getElementById('canvas').style.display = 'none';
+                document.getElementById('score-div').style.display = 'none';
+                document.querySelector('.game').style.display = 'none';
                 document.getElementById('restart').addEventListener('click', () => {
                     location.reload()
                 })
@@ -211,9 +213,10 @@ function exists(letters) {
 
         if (index > -1) {
             currentGame.score++;
-            debugger;
+            document.getElementById('letters').innerHTML += letters[i].letter.toLowerCase()
+
             document.getElementById('score').innerHTML = currentGame.score;
-            
+
             randomWordArray.splice(index, 1);
             if(randomWordArray.length === 0) {
                 document.getElementById('score').innerHTML = currentGame.score;

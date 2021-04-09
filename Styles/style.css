@@ -1,16 +1,58 @@
 #start-button {
     font-size: 30px;
-    background-color:rgb(84, 197, 197);;
-    color: #fff;
+    background-color: rgb(247, 247, 137);
+    color: rgb(24, 2, 2);
     padding: 20px 40px;
     border: 0;
     box-shadow: 0;
     border-radius: 5px;
-    position: absolute;
-    top: 320px;
-    left: 608px;
+    margin-top: 300px
+}
+#restart {
+    font-size: 30px;
+    background-color: rgb(247, 247, 137);
+    color: rgb(24, 2, 2);
+    padding: 20px 40px;
+    border: 0;
+    box-shadow: 0;
+    border-radius: 5px;
 }
 
-canvas{
+.main {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+canvas {
     background-color: rgb(247, 247, 137);
+}
+
+
+h2 {
+    text-align: center
+}
+
+.game{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+#score-div {
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.win{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    margin-top: 300px
 }

@@ -1,14 +1,17 @@
 class Basket{
     constructor(){
-        this.x= 250;
-        this.y=550;
-        this.width=50;
-        this.height=60;
+        this.x= 350;
+        this.y=700;
+        this.width=200;
+        this.height=100;
+        
     }
     draw(){
         const image = new Image();
-        image.src = './images/basket.jpg';
+        image.src = './images/basket.png';
+        image.style.backgroundColor = 'rgb(247, 247, 137)';
         context.drawImage(image, this.x, this.y, this.width, this.height);
+
 
     }
     move(keyCode){
@@ -16,12 +19,12 @@ class Basket{
         context.clearRect(this.x, this.y, this.width, this.height);
         switch(keyCode) {
             case 37: 
-                if (this.x > 20) {
+                if (this.x > 10) {
                     this.x -= 10;
                 }
             break;
             case 39: 
-                if (this.x < 430) {
+                if (this.x < 620) {
                     this.x += 10
                 }
             break;
